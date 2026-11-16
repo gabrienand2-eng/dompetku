@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, viewport-fit=cover">
+<title>Dompetku</title>
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Dompetku">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="theme-color" content="#F7F2EB">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" type="image/png" href="icon-192.png">
+<link rel="manifest" href="manifest.webmanifest">
+<style>
+  html,body{margin:0;height:100%;background:#F7F2EB;overflow:hidden}
+  .wrap{position:fixed;inset:0;padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom);box-sizing:border-box}
+  iframe{border:0;width:100%;height:100%;display:block;background:#F7F2EB}
+  .splash{position:fixed;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;background:#ECE1D5;transition:opacity .4s;font:800 18px system-ui,sans-serif;color:#141A45}
+  .splash img{width:96px;height:96px;border-radius:24px;animation:bob 1.6s ease-in-out infinite}
+  .splash.hide{opacity:0;pointer-events:none}
+  @keyframes bob{50%{transform:translateY(-8px)}}
+</style>
+</head>
+<body>
+<div class="wrap"><iframe id="app" title="Dompetku" allow="clipboard-write"></iframe></div>
+<div class="splash" id="splash"><img src="icon-192.png" alt=""><span>Dompetku</span></div>
+<script>
+  // Alamat aplikasi Dompetku (Google Apps Script)
+  const APP_URL = 'https://script.google.com/macros/s/AKfycbxEqkCmDSYAL4yybcqq5iR5uUfr298UZYIV3aFigFO5JkvLli5ap3jkjeR55Dd65AvV/exec';
+  const f = document.getElementById('app');
+  f.addEventListener('load', () => setTimeout(() => document.getElementById('splash').classList.add('hide'), 300));
+  f.src = APP_URL;
+  setTimeout(() => document.getElementById('splash').classList.add('hide'), 8000);
+</script>
+</body>
+</html>
